@@ -8,9 +8,10 @@ export default class EVCar {
     this._range = range;
   }
 
-  //override clone car of parent
+  // override clone car of parent
   cloneCar() {
+    const br = this._brand;
+    this._brand = br;
     return new Car();
   }
-  
 }
