@@ -1,8 +1,8 @@
 export default class Building {
   constructor(sqft) {
     if (typeof sqft !== 'number') throw new Error('sqft must be a number');
-    if (this.constructor !== Building) this.evacuationWarningMessage();
     this._sqft = sqft;
+    if (this.constructor !== Building) this.evacuationWarningMessage();
   }
 
   // getter for sqft
@@ -18,6 +18,7 @@ export default class Building {
 
   // make subclasses implement this method
   evacuationWarningMessage() {
+    this.sqft = this._sqft;
     throw new Error('Class extending Building must override evacuationWarningMessage');
   }
 }
