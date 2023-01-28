@@ -9,9 +9,9 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
         const ob = {};
         ob.status = val.status;
         if (val.value) ob.value = val.value;
-        else ob.value = val.reason;
+        if (val.reason) ob.value = val.reason;
         arr.push(ob);
-      })
+      });
       return arr;
     });
 }
