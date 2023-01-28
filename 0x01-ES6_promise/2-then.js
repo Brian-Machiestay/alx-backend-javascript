@@ -1,7 +1,7 @@
 // thenable things
 
 export default function handleResponseFromAPI(promise) {
-  promise.then(() => ({
+  return promise.then(() => ({
     status: 200,
     body: 'success',
   }))
