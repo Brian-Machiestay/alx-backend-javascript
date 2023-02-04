@@ -1,5 +1,5 @@
 export default function cleanSet(setobj, startString) {
-  if (startString === '' || startString === undefined) return '';
+  if (startString === '' || startString === undefined || typeof startString !== 'string') return '';
   const strobj = [];
   setobj.forEach((obj) => {
     if (obj === undefined) return;
