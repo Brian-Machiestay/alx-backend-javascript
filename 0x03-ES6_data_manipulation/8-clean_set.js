@@ -1,7 +1,8 @@
 export default function cleanSet(setobj, startString) {
-  if (startString === '') return '';
+  if (startString === '' || startString === undefined) return '';
   const strobj = [];
   setobj.forEach((obj) => {
+    if (obj === undefined) return;
     if (obj.startsWith(startString)) {
       strobj.push(obj.substring(startString.length));
     }
