@@ -1,7 +1,7 @@
 const http = require('http');
+
 const port = 1245;
 const pat = process.argv[2];
-const execFile = require('child_process').execFile;
 const fs = require('fs');
 
 const countStudents = (path, res) => {
@@ -26,22 +26,22 @@ const countStudents = (path, res) => {
         }
         res.write(`Number of students: ${numStu}`);
         for (const key of Object.keys(ob)) {
-          res.write(`Number of students in ${key}: ${ob[key][0]}. \                                                                                                   List: ${ob[key][1].join(', ')}`);
+          res.write(`Number of students in ${key}: ${ob[key][0]}. \
+List: ${ob[key][1].join(', ')}`);
           resolve();
         }
       }
-    })
-  })
-}
+    });
+  });
+};
 
 const app = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  let url = req.url;
+  const { url } = req;
   if (url === '/') {
     res.end('Hello Holberton School!');
-  }
-  else if (url === '/students') {
+  } else if (url === '/students') {
     res.write('This is the list of our students\n');
     countStudents(pat, res).catch((err) => console.log(err));
   }
@@ -49,6 +49,6 @@ const app = http.createServer((req, res) => {
 
 app.listen(port, () => {
   console.log(`This server is running and listening on port ${port}`);
-})
+});
 
 module.exports = app;
