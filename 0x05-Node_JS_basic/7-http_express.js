@@ -37,10 +37,10 @@ app.get('/students', (req, res) => {
         res.write(`Number of students in ${key}: ${ob[key][0]}. \
 List: ${ob[key][1].join(', ')}\n`);
       }
-      res.end()
+      res.end();
     }
-  })
-})
+  });
+});
 
 app.listen(port, () => {
   console.log(`app is listening on port ${port}`);
