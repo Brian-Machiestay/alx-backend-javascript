@@ -14,7 +14,8 @@ const app = http.createServer((req, res) => {
     res.write('This is the list of our students\n');
     fs.readFile(path, 'utf8', (err, data) => {
       if (err) {
-        res.write(new Error('Cannot load the database'));
+        res.statusCode = 400;
+        res.write((new Error('Cannot load the database')).stack);
         res.end();
       } else {
         const ob = {};
