@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
-  res.send('This is the list of our students\n');
+  res.write('This is the list of our students\n');
   fs.readFile(path, 'utf8', (err, data) => {
     if (err) {
       res.write((new Error('Cannot load the database')).stack);
@@ -34,7 +34,8 @@ app.get('/students', (req, res) => {
       }
       res.write(`Number of students: ${numStu}\n`);
       for (const key of Object.keys(ob)) {
-        res.write(`Number of students in ${key}: ${ob[key][0]}. \                                                                                                     List: ${ob[key][1].join(', ')}\n`);
+        res.write(`Number of students in ${key}: ${ob[key][0]}. \
+List: ${ob[key][1].join(', ')}\n`);
       }
       res.end()
     }
