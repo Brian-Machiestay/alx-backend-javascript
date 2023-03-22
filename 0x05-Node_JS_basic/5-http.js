@@ -34,9 +34,12 @@ const app = http.createServer((req, res) => {
           }
         }
         res.write(`Number of students: ${numStu}\n`);
+        let len = 0;
         for (const key of Object.keys(ob)) {
           res.write(`Number of students in ${key}: ${ob[key][0]}. \
-List: ${ob[key][1].join(', ')}\n`);
+List: ${ob[key][1].join(', ')}`);
+          if (len < Object.keys(ob).length - 1) res.write('\n');
+          len = +1;
         }
         res.end();
       }
