@@ -11,7 +11,6 @@ const app = http.createServer((req, res) => {
   if (url === '/') {
     res.end('Hello Holberton School!');
   } else if (url === '/students') {
-    res.write('This is the list of our students\n');
     fs.readFile(path, 'utf8', (err, data) => {
       if (err) {
         res.write((new Error('Cannot load the database')).stack);
@@ -19,6 +18,7 @@ const app = http.createServer((req, res) => {
       } else {
         const ob = {};
         let numStu = 0;
+        res.write('This is the list of our students\n');
         for (const line of data.split('\n')) {
           if (line !== '') {
             const fields = line.split(',');
