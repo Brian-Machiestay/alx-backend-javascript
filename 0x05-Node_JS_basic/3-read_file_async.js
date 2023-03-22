@@ -24,7 +24,7 @@ const countStudents = (path) => {
         for (const key of Object.keys(ob)) {
           console.log(`Number of students in ${key}: ${ob[key][0]}. \
 List: ${ob[key][1].join(', ')}`);
-          resolve();
+          resolve(data);
         }
       }
     });
