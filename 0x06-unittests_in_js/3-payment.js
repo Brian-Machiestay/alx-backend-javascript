@@ -7,4 +7,4 @@ const sendPaymentRequestToApi = (totalAmount, totalShipping) => {
   return result;
 }
 
-module.exports = { sendPaymentRequestToApi, Utils };
+module.exports = sendPaymentRequestToApi;
