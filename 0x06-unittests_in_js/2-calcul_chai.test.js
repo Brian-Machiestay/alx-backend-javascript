@@ -6,16 +6,16 @@ const expect = chai.expect;
 describe('calculateNumber', function () {
   describe('SUM', function () {
     it('should return 5', function () {
-      expect(calculateNumber('SUM', 3.6, 1.2)).to.equal(5);
+      chai.expect(calculateNumber('SUM', 3.6, 1.2)).to.equal(5);
     });
     it('should return 3', function () {
-      expect(calculateNumber('SUM', 1, 2)).to.equal(3);
+      chai.expect(calculateNumber('SUM', 1, 2)).to.equal(3);
     });
     it('should return 4', function () {
-      expect(calculateNumber('SUM', 3.4, 1)).to.equal(4);
+      chai.expect(calculateNumber('SUM', 3.4, 1)).to.equal(4);
     });
     it('should return 6', function () {
-      expect(calculateNumber('SUM', 4, 1.5)).to.equal(6);
+      chai.expect(calculateNumber('SUM', 4, 1.5)).to.equal(6);
     });
   });
 
