@@ -3,7 +3,7 @@ const expect = chai.expect;
 const sinon = require('sinon');
 const sendPaymentRequestToApi = require('./3-payment');
 const Utils = require('./utils');
-const calculateNumber = Utils();
+const calculateNumber = Utils.calculateNumber;
 
 describe('sendPaymentRequestToApi', function () {
   it('should return true', function () {
