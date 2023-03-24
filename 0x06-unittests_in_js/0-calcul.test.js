@@ -18,4 +18,7 @@ describe('calculateNumber', function () {
   it('should return -3', function () {
     assert.equal(calculateNumber(-1.5, -1), -2);
   })
+  it('should return 4', function () {
+    assert.equal(calculateNumber(1, 3.4), 4);
+  })
 });
