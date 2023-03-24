@@ -1,14 +1,13 @@
 const chai = require('chai');
 const expect = chai.expect;
 const sinon = require('sinon');
-const sendPaymentRequestToApi = require('./3-payment');
-const Utils = require('./utils');
-const calculateNumber = Utils.calculateNumber;
+const sendPaymentRequestToApi = require('./3-payment').sendPaymentRequestToApi;
+const Utils = require('./3-payment').Utils;
 
 describe('sendPaymentRequestToApi', function () {
   it('should return true', function () {
-    const spyapi = sinon.spy(calculateNumber);
+    const spyapi = sinon.spy(sendPaymentRequestToApi);
     sendPaymentRequestToApi(100, 20);
-    expect(spyapi.calledOnce).to.be.false;
+    expect(spyapi.returnValues[0]).to.equal(undefined);
   })
 })
