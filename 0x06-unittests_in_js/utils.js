@@ -1,5 +1,5 @@
-const utils = () => {
-  const calculateNumber = (type, a, b) => {
+function Utils() {
+  const calculateNumber = function (type, a, b) {
     const m = Math.round(a);
     const n = Math.round(b);
 
@@ -10,6 +10,7 @@ const utils = () => {
       return m / n;
     }
   }
+  return calculateNumber;
 }
 
-module.exports = utils;
+module.exports = Utils;
