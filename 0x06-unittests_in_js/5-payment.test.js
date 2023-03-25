@@ -14,14 +14,14 @@ describe('sendPaymentRequestToApi', function () {
   })
 
   it('should log 120 to the console', function () {
-    sendPaymentRequestToAPI(100, 20);
-    expect(spyConsole.getCall(0).args[0]).to.be('The total is: 120');
+    sendPaymentRequestToApi(100, 20);
+    expect(spyConsole.getCall(0).args[0]).to.equal('The total is: 120');
     expect(spyConsole.calledOnce).to.be.true;
   })
 
   it('should log 20 to the console', function () {
-    sendPaymentRequestToAPI(10, 20);
-    expect(spyConsole.getCall(0).args[0]).to.be('The total is: 20');
+    sendPaymentRequestToApi(10, 10);
+    expect(spyConsole.getCall(0).args[0]).to.equal('The total is: 20');
     expect(spyConsole.calledOnce).to.be.true;
   })
 })
