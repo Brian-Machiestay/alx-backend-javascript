@@ -2,7 +2,7 @@ import readDatabase from '../utils';
 
 let path = require('path');
 
-path = path.resolve(__dirname, 'database.csv');
+path = path.resolve(process.argv[2]);
 
 class StudentsController {
   static getAllStudents(request, response) {
@@ -10,11 +10,10 @@ class StudentsController {
     readDatabase(path).then((ob) => {
       const keys = Object.keys(ob);
       keys.sort();
-      console.log(ob);
       let i = 0;
       for (const key of keys) {
         response.write(`Number of students in ${key}: ${ob[key][0]}. \
-List: ${ob[key].join(', ')}`);
+List: ${ob[key][1].join(', ')}`);
         if (i < keys.length - 1) response.write('\n');
         i += 1;
       }
@@ -33,7 +32,7 @@ List: ${ob[key].join(', ')}`);
       return;
     }
     readDatabase('database.csv').then((ob) => {
-      response.send(`List: ${ob[major].join(', ')}`);
+      response.send(`List: ${ob[major][1].join(', ')}`);
     }).catch((err) => {
       console.log(err);
       response.status(500).write('Cannot load the database');
