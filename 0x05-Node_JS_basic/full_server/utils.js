@@ -11,7 +11,7 @@ const readDatabase = (path) => {
             const fields = line.split(',');
             if (fields[3] !== 'field') {
               if (ob[fields[3]] === undefined) {
-                ob[fields[3]] = []
+                ob[fields[3]] = [];
               }
               ob[fields[3]].push(fields[0]);
             }
@@ -19,8 +19,8 @@ const readDatabase = (path) => {
         }
         resolve(ob);
       }
-    })
-  })
-}
+    });
+  });
+};
 
 module.exports = readDatabase;

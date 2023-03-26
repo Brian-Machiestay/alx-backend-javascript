@@ -1,4 +1,5 @@
-import readDatabase from '../utils'
+import readDatabase from '../utils';
+
 let path = require('path');
 
 path = path.resolve(__dirname, 'database.csv');
@@ -19,23 +20,22 @@ List: ${ob[key].join(', ')}\n`);
       console.log(err);
       response.status(500).write('Cannot load the database');
       response.end();
-    })
+    });
   }
 
   static getAllStudentsByMajor(request, response) {
-    const major = request.params['major'];
+    const { major } = request.params;
     if (major !== 'CS' && major !== 'SWE') {
       response.status(500).send('Major parameter must be CS or SWE');
       return;
     }
     readDatabase('database.csv').then((ob) => {
-      const keys = Object.keys(ob);
       response.send(`List: ${ob[major].join(', ')}`);
     }).catch((err) => {
       console.log(err);
       response.status(500).write('Cannot load the database');
       response.end();
-    })
+    });
   }
 }
 
