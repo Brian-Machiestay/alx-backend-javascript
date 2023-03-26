@@ -11,9 +11,12 @@ class StudentsController {
       const keys = Object.keys(ob);
       keys.sort();
       console.log(ob);
+      let i = 0;
       for (const key of keys) {
         response.write(`Number of students in ${key}: ${ob[key][0]}. \
-List: ${ob[key].join(', ')}\n`);
+List: ${ob[key].join(', ')}`);
+        if (i < keys.length - 1) response.write('\n');
+        i += 1;
       }
       response.end();
     }).catch((err) => {
